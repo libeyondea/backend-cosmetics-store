@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 27, 2021 lúc 08:06 AM
+-- Thời gian đã tạo: Th4 28, 2021 lúc 01:08 PM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.4.9
 
@@ -93,7 +93,9 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `parent_id`, `title`, `slug`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Nước hoa nam', 'nuoc-hoa-nam', '2021-04-27 05:47:44', '2021-04-27 05:47:44'),
-(2, NULL, 'Trang Điểm Mặt', 'trang-diem-mat', '2021-04-27 05:47:44', '2021-04-27 05:47:44');
+(2, NULL, 'Trang Điểm Mặt', 'trang-diem-mat', '2021-04-27 05:47:44', '2021-04-27 05:47:44'),
+(3, NULL, 'Nước hoa nữ', 'nuoc-hoa-nu', '2021-04-27 05:47:44', '2021-04-27 05:47:44'),
+(4, NULL, 'Son môi', 'son-moi', '2021-04-27 05:47:44', '2021-04-27 05:47:44');
 
 -- --------------------------------------------------------
 
@@ -179,7 +181,15 @@ CREATE TABLE `oauth_access_tokens` (
 --
 
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
-('b94322c2d2e1d5f72a0377c9da06602377bd12aeb22362576891e1dd0631064bb57b55891cb0b014', 1, 1, 'Personal Access Token', '[]', 0, '2021-04-27 04:32:39', '2021-04-27 04:32:39', '2021-04-28 11:32:39');
+('0c974676a1c16b431327b97c2c5127e300c874862aa9ff4b939c51c393bea97db9b22eb12aff2f34', 2, 1, 'Personal Access Token', '[]', 0, '2021-04-28 03:14:26', '2021-04-28 03:14:26', '2021-04-29 10:14:25'),
+('28731975d769651238b609e80101270abd8eeaa1f7419baf0a2163fae38433636f0f77faa40ea54e', 3, 1, 'Personal Access Client', '[]', 0, '2021-04-28 06:43:26', '2021-04-28 06:43:26', '2021-04-29 13:43:25'),
+('2f67b5a4949b34757533e48878b38796bcf537513c341a937c630cc996c4e790a92d5511544a1ab0', 2, 1, 'Personal Access Token', '[]', 0, '2021-04-28 06:44:48', '2021-04-28 06:44:48', '2021-04-29 13:44:48'),
+('90f4d482b4e9e805bc0e531ee4bed02b8667935aadb965d2861b52cc25c0c665918cdd8dcb386921', 3, 1, 'Personal Access Client', '[]', 0, '2021-04-28 03:23:47', '2021-04-28 03:23:47', '2021-04-29 10:23:46'),
+('94d7555cc20263a123753eb1ef7938f30afe0af4305a7a5655b633bf6d03644c790a925577d333e7', 4, 1, 'Personal Access Client', '[]', 0, '2021-04-28 03:39:48', '2021-04-28 03:39:48', '2021-04-29 10:39:47'),
+('b94322c2d2e1d5f72a0377c9da06602377bd12aeb22362576891e1dd0631064bb57b55891cb0b014', 1, 1, 'Personal Access Token', '[]', 0, '2021-04-27 04:32:39', '2021-04-27 04:32:39', '2021-04-28 11:32:39'),
+('d47cb3be658da16e6bdbb9c9e97d41f281b5ecf57d6a8d6fa28ecde4f94c63bd10a8ee895452a218', 2, 1, 'Personal Access Token', '[]', 0, '2021-04-28 03:13:41', '2021-04-28 03:13:41', '2021-04-29 10:13:41'),
+('e78b2c709902ccf165a1d389b41474a5e8a76aa6dcfb58d8e63d063704ce402749d6bb42a79d2c04', 2, 1, 'Personal Access Token', '[]', 0, '2021-04-28 06:42:58', '2021-04-28 06:42:58', '2021-04-29 13:42:58'),
+('fc0fcc5ca1e705317736bf26b593de0363f59ccbc50ef257dcc7434f2d5fd7ae3bef208d73fafe06', 2, 1, 'Personal Access Token', '[]', 0, '2021-04-28 04:58:22', '2021-04-28 04:58:22', '2021-04-29 11:58:21');
 
 -- --------------------------------------------------------
 
@@ -332,8 +342,17 @@ CREATE TABLE `product` (
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
 INSERT INTO `product` (`id`, `category_id`, `brand_id`, `title`, `slug`, `excerpt`, `content`, `price`, `discount`, `quantity`, `published`, `published_at`, `created_at`, `updated_at`) VALUES
-('1', '2', '2', 'Phấn Trang Điểm Đa Năng Odbo MakeUp Series', 'phan-trang-diem-da-nang-odbo-makeup-series-od1021', 'Phấn Trang Điểm Đa Năng Odbo MakeUp Series', 'Phấn Trang Điểm Đa Năng Odbo MakeUp Series', '200000', '40000', '66', '1', '2021-04-27 13:11:35', '2021-04-27 13:11:35', '2021-04-27 13:11:35');
+(1, 2, 2, 'Phấn Trang Điểm Đa Năng Odbo MakeUp Series', 'phan-trang-diem-da-nang-odbo-makeup-series-od1021', 'Phấn Trang Điểm Đa Năng Odbo MakeUp Series', 'Phấn Trang Điểm Đa Năng Odbo MakeUp Series', '200000', '40000', 66, 1, '2021-04-27 13:11:35', '2021-04-27 13:11:35', '2021-04-27 13:11:35'),
+(2, 1, 2, 'Nước Hoa Nam Venus Global Beauty Laura Anné', 'nuoc-hoa-nam-venus-global-beauty-laura-anne-eau-de-parfum-50ml', 'Nước Hoa Nam Venus Global Beauty Laura Anné', 'Nước Hoa Nam Venus Global Beauty Laura Anné', '300000', '50000', 20, 1, '2021-04-27 13:11:35', '2021-04-27 13:11:35', '2021-04-27 13:11:35'),
+(3, 2, 1, 'Má Hồng Odbo Happy Everyday Pocket Blusher', 'ma-hong-odbo-happy-everyday-pocket-blusher-od103', 'Má Hồng Odbo Happy Everyday Pocket Blusher', 'Má Hồng Odbo Happy Everyday Pocket Blusher', '100000', '10000', 100, 1, '2021-04-28 13:11:35', '2021-04-28 13:11:35', '2021-04-28 13:11:35'),
+(4, 3, 1, 'Nước Hoa Dạng Lăn Victoria\'s Secret', 'nuoc-hoa-dang-lan-victorias-secret-eau-de-parfum-rollerball-7ml', 'Nước Hoa Dạng Lăn Victoria\'s Secret', 'Nước Hoa Dạng Lăn Victoria\'s Secret', '280000', '30000', 46, 1, '2021-04-28 13:11:35', '2021-04-27 13:11:35', '2021-04-27 15:24:10'),
+(5, 3, 2, 'Nước Hoa Nữ Venus Global Beauty Laura Anné', 'nuoc-hoa-nu-venus-global-beauty-laura-anne-perfume-50ml', 'Nước Hoa Nữ Venus Global Beauty Laura Anné', 'Nước Hoa Nữ Venus Global Beauty Laura Anné', '180000', '25000', 63, 1, '2021-04-28 13:11:35', '2021-04-27 13:11:35', '2021-04-27 15:24:10'),
+(6, 4, 1, 'Son Christian Louboutin Collection Limited Edition', 'son-christian-louboutin-collection-limited-edition', 'Son Christian Louboutin Collection Limited Edition', 'Son Christian Louboutin Collection Limited Edition', '4260056', '100000', 100, 1, '2021-04-28 13:11:35', '2021-04-27 13:11:35', '2021-04-27 15:24:10');
 
 -- --------------------------------------------------------
 
@@ -350,9 +369,17 @@ CREATE TABLE `product_image` (
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `product_image`
+--
 
 INSERT INTO `product_image` (`id`, `product_id`, `title`, `image_url`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Odbo---Makeup-OD1021.jpg', 'Odbo---Makeup-OD1021.jpg', '2021-04-27 05:54:11', '2021-04-27 05:54:11');
+(1, 1, 'Odbo---Makeup-OD1021.jpg', 'Odbo---Makeup-OD1021.jpg', '2021-04-27 05:54:11', '2021-04-27 05:54:11'),
+(2, 4, 'very-sexy-night-recovered-recovered-recovered-22112019111005.jpg', 'very-sexy-night-recovered-recovered-recovered-22112019111005.jpg', '2021-04-27 05:54:11', '2021-04-28 07:00:07'),
+(3, 2, 'nh-nam-04122019093133.jpg', 'nh-nam-04122019093133.jpg', '2021-04-27 05:54:11', '2021-04-28 06:59:58'),
+(4, 3, 'Happy-Everyday-Pocket-Blusher.png', 'Happy-Everyday-Pocket-Blusher.png', '2021-04-27 05:54:11', '2021-04-27 05:54:11'),
+(5, 5, 'nuoc-hoa-min-versace-eau-de-toilette-5ml-beauty-garden.jpg', 'nuoc-hoa-min-versace-eau-de-toilette-5ml-beauty-garden.jpg', '2021-04-27 05:54:11', '2021-04-27 05:54:11'),
+(6, 6, 'son-christian-louboutin-collection-limited-edition-beauty-garden-1.jpg', 'son-christian-louboutin-collection-limited-edition-beauty-garden-1.jpg', '2021-04-27 05:54:11', '2021-04-27 05:54:11');
 
 -- --------------------------------------------------------
 
@@ -366,6 +393,13 @@ CREATE TABLE `product_tag` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `product_tag`
+--
+
+INSERT INTO `product_tag` (`product_id`, `tag_id`, `created_at`, `updated_at`) VALUES
+(1, 1, '2021-04-27 06:23:45', '2021-04-27 06:23:45');
 
 -- --------------------------------------------------------
 
@@ -439,7 +473,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `facebook_id`, `google_id`, `first_name`, `last_name`, `user_name`, `email`, `email_verified_at`, `password`, `remember_token`, `auth_token`, `phone_number`, `address`, `district`, `ward`, `city`, `gender`, `avatar`, `intro`, `profile`, `created_at`, `updated_at`) VALUES
-(1, NULL, NULL, 'Thuc', 'Nguyen', 'de4th-zone', 'de4th-zone@gmail.com', NULL, '$2y$10$AXAAo3xcY5YLbL985bnl3eR5TPGReNck6UB5doI5gnOiY0CXPyFHG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-27 04:31:58', '2021-04-27 04:31:58');
+(1, NULL, NULL, 'Thuc', 'Nguyen', 'de4th-zone', 'de4th-zone@gmail.com', NULL, '$2y$10$AXAAo3xcY5YLbL985bnl3eR5TPGReNck6UB5doI5gnOiY0CXPyFHG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-27 04:31:58', '2021-04-27 04:31:58'),
+(2, NULL, NULL, 'Thuc', 'Nguyen', 'thucdaik', 'thucdaik@gmail.com', NULL, '$2y$10$Ae/rMD8kMXaR4rREp4qhiuLE7wFi/niqbGHxk78O0UoF0AjOQ238.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-28 03:09:08', '2021-04-28 03:09:08'),
+(3, '1122003211597038', NULL, 'Thức', 'Nguyễn', 'fb_1122003211597038', 'nhtanonymous@gmail.com', NULL, '$2y$10$VGD4XWJPZ0YsxnNb7pZRYewHLqr5Ln.I9kLke0XWu154oPJfQi9Qi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=1122003211597038&height=50&width=50&ext=1622172227&hash=AeSqf7y0K20viqmV3R0', NULL, NULL, '2021-04-28 03:23:47', '2021-04-28 03:23:47'),
+(4, NULL, '106928172396818798217', 'Hidden', '666', 'gg_106928172396818798217', 'admjnwapviip@gmail.com', NULL, '$2y$10$LsZnXCAhDmRZ9whrqL697en47XVwOzIsyrWm4OX2V9LM4uHlJ.Qz6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://lh3.googleusercontent.com/a-/AOh14GhA2bQHuCdcM33KMpoZqWwCCrbImXnxvIUwboPP=s96-c', NULL, NULL, '2021-04-28 03:39:48', '2021-04-28 03:39:48');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -623,7 +660,7 @@ ALTER TABLE `cart_product`
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `comment`
@@ -668,10 +705,22 @@ ALTER TABLE `order_product`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT cho bảng `product_image`
 --
 ALTER TABLE `product_image`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT cho bảng `slide`
+--
+ALTER TABLE `slide`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tag`
@@ -683,14 +732,7 @@ ALTER TABLE `tag`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-ALTER TABLE `product`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-ALTER TABLE `slide`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
