@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 28, 2021 lúc 01:08 PM
+-- Thời gian đã tạo: Th4 29, 2021 lúc 09:55 AM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.4.9
 
@@ -181,9 +181,11 @@ CREATE TABLE `oauth_access_tokens` (
 --
 
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('0ab1c80df848f9da2eb947f5d4babd8d311fffe9be14fd706d4ab58ca274ce116129c20b7ab93aad', 2, 1, 'Personal Access Token', '[]', 0, '2021-04-28 11:33:38', '2021-04-28 11:33:38', '2021-04-29 18:33:37'),
 ('0c974676a1c16b431327b97c2c5127e300c874862aa9ff4b939c51c393bea97db9b22eb12aff2f34', 2, 1, 'Personal Access Token', '[]', 0, '2021-04-28 03:14:26', '2021-04-28 03:14:26', '2021-04-29 10:14:25'),
 ('28731975d769651238b609e80101270abd8eeaa1f7419baf0a2163fae38433636f0f77faa40ea54e', 3, 1, 'Personal Access Client', '[]', 0, '2021-04-28 06:43:26', '2021-04-28 06:43:26', '2021-04-29 13:43:25'),
 ('2f67b5a4949b34757533e48878b38796bcf537513c341a937c630cc996c4e790a92d5511544a1ab0', 2, 1, 'Personal Access Token', '[]', 0, '2021-04-28 06:44:48', '2021-04-28 06:44:48', '2021-04-29 13:44:48'),
+('8b0adfbd06e165109c502776dce5e882218f04d9a0d0ec6dda1ed8e63796e46f95c4769be2107246', 2, 1, 'Personal Access Token', '[]', 0, '2021-04-28 11:34:32', '2021-04-28 11:34:32', '2021-04-29 18:34:32'),
 ('90f4d482b4e9e805bc0e531ee4bed02b8667935aadb965d2861b52cc25c0c665918cdd8dcb386921', 3, 1, 'Personal Access Client', '[]', 0, '2021-04-28 03:23:47', '2021-04-28 03:23:47', '2021-04-29 10:23:46'),
 ('94d7555cc20263a123753eb1ef7938f30afe0af4305a7a5655b633bf6d03644c790a925577d333e7', 4, 1, 'Personal Access Client', '[]', 0, '2021-04-28 03:39:48', '2021-04-28 03:39:48', '2021-04-29 10:39:47'),
 ('b94322c2d2e1d5f72a0377c9da06602377bd12aeb22362576891e1dd0631064bb57b55891cb0b014', 1, 1, 'Personal Access Token', '[]', 0, '2021-04-27 04:32:39', '2021-04-27 04:32:39', '2021-04-28 11:32:39'),
