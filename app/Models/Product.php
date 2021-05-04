@@ -53,4 +53,9 @@ class Product extends Model
     {
     	return $this->hasMany('App\Models\CartProduct', 'product_id', 'id');
     }
+
+    public function Cart()
+    {
+        return $this->belongsToMany('App\Models\Cart', 'cart_product');
+    }
 }

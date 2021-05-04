@@ -15,8 +15,7 @@ class CategoryTransformers extends TransformerAbstract
             'slug' => $category->slug,
             'content' => $category->content,
             'created_at' => $category->created_at,
-            'updated_at' => $category->updated_at,
-            'total_posts' =>$category->post->count(),
+            'updated_at' => $category->updated_at
         ];
     }
 }

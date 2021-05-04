@@ -23,9 +23,10 @@ class CategoryController extends Controller
     {
         $limit = $request->get('limit', $limit);
         $offset = $request->get('offset', $offset);
-        $category = Category::orderBy('id', 'asc');
-        $categoriesCount = $category->get()->count();
+
+        $category = Category::orderBy('created_at', 'desc');
         $listCategory = fractal($category->skip($offset)->take($limit)->get(), $this->categoryTransformers);
+        $categoriesCount = $category->get()->count();
         return response()->json([
             'success' => true,
             'data' => $listCategory,

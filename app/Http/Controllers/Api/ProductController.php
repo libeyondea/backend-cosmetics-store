@@ -22,8 +22,8 @@ class ProductController extends Controller
     {
         $limit = $request->input('limit', $limit);
         $offset = $request->input('offset', $offset);
-        $field = $request->input('sort.field', $field);
-        $type = $request->input('sort.type', $type);
+        $field = $request->input('sort_field', $field);
+        $type = $request->input('sort_type', $type);
 
         if ($request->filled('slug') && $request->filled('provider')) {
             $product = Product::whereHas($request->provider, function($q) use ($request) {
@@ -43,7 +43,11 @@ class ProductController extends Controller
             $product = new Product;
         }
         $productsCount = $product->get()->count();
-        $listProduct = fractal($product->orderBy($field, $type)->skip($offset)->take($limit)->get(), $this->productTransformers);
+        if ($field == 'price') {
+            $listProduct = fractal($product->orderByRaw('(price - discount) '.$type)->skip($offset)->take($limit)->get(), $this->productTransformers);
+        } else {
+            $listProduct = fractal($product->orderBy($field, $type)->skip($offset)->take($limit)->get(), $this->productTransformers);
+        }
         return response()->json([
             'success' => true,
             'data' => $listProduct,

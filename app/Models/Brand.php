@@ -9,9 +9,9 @@ class Brand extends Model
     protected $table = 'brand';
     protected $primaryKey = 'id';
 
-    public function Post()
+    public function Product()
     {
-    	return $this->hasMany('App\Models\Post', 'brand_id', 'id');
+    	return $this->hasMany('App\Models\Product', 'brand_id', 'id');
     }
 
 }

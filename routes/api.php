@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\TagController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CommentController;
+use App\Http\Controllers\Api\BrandController;
+use App\Http\Controllers\Api\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,12 +33,18 @@ Route::group(['middleware' => 'cors'], function(){
     Route::get('tags/{slug}', [TagController::class, 'singleTag']);
     //
     Route::get('categories', [CategoryController::class, 'listCategory']);
-    Route::get('categories/{slug}', [CategoryController::class, 'singleCategory']);
     //
     Route::get('comments/{post_slug}', [CommentController::class, 'listComment']);
+    //
+    Route::get('brands', [BrandController::class, 'listBrand']);
 });
 
 Route::group(['middleware' => ['auth:api', 'cors']], function(){
     Route::get('users/logout', [AuthController::class, 'logout']);
     Route::get('user', [AuthController::class, 'user']);
+    // Cart
+    Route::get('carts', [CartController::class, 'listCart']);
+    Route::post('carts/add-to-cart', [CartController::class, 'addToCart']);
+    Route::delete('carts/del-cart-item', [CartController::class, 'delCartItem']);
+    Route::post('carts/checkout', [CartController::class, 'checkout']);
 });
